@@ -1,0 +1,2 @@
+# checkhosting
+none
