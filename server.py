@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 import requests as rq
 import pandas as pd
+import os
 
 app = Flask(__name__)
 
@@ -10,8 +11,9 @@ url_base = "https://selfserve.decipherinc.com/api/v1/surveys/selfserve/563/"
 quota_url = f"{url_base}{path}/quota"
 
 global df_marker
-df_marker_path = r"C:\suhail_work\March12_surveydeploy\survey\marker\marker.xlsx"
-df_marker = pd.read_excel(df_marker_path)
+
+marker_file_path = os.path.join(os.getcwd(), "marker.xlsx")
+df_marker = pd.read_excel(marker_file_path)
 
 
 @app.route('/')
